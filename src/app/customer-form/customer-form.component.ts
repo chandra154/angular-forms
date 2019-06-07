@@ -1,6 +1,10 @@
 import { Component, OnInit,Directive,Input } from '@angular/core';
+
+
 import { Customer } from '../customer';
 import { Validator, AbstractControl, NG_VALIDATORS, Validators, ValidatorFn } from '@angular/forms';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-customer-form',
@@ -61,6 +65,8 @@ export class CustomerFormComponent implements OnInit {
     { "occupationKey" : "Software Engineer", "occupationTitle" : "Software Engineer" }
   ];
 
+  configUrl = "http://localhost:4000/test";
+
   // model = new Customer(this.customerTypeList[0].customerKey, 'Chandra', 'Ch', 99, '');
   
   model: any = {};
@@ -73,12 +79,25 @@ export class CustomerFormComponent implements OnInit {
     console.log(this.model);
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.model.customerGender = 1;
     this.model.customerType = "Owner";
     this.model.customerOccupation = "Business";
+    this.showConfig();
+    // const Hello = this.getConfig();
+    // console.log(Hello);
+  }
+
+  showConfig() {
+    this.getConfig().subscribe((response) => {
+      console.log(response);
+    });
+  }
+
+  getConfig() {
+    return this.http.get(this.configUrl);
   }
 
   get diagnostic() { return JSON.stringify(this.model); }
