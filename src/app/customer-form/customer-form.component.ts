@@ -61,7 +61,7 @@ export class CustomerFormComponent implements OnInit {
     { "occupationKey" : "Software Engineer", "occupationTitle" : "Software Engineer" }
   ];
 
-  //model = new Customer(this.customerTypeList[0].customerKey, 'Chandra', 'Ch', 99, '');
+  // model = new Customer(this.customerTypeList[0].customerKey, 'Chandra', 'Ch', 99, '');
   
   model: any = {};
   
