@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
+import { PropertyFormComponent } from './property-form/property-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroFormComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    PropertyFormComponent
   ],
   imports: [
     BrowserModule,
